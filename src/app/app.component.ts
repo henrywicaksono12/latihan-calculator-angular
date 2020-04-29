@@ -9,19 +9,16 @@ import { Router } from '@angular/router'
 
 export class AppComponent  {
   name = 'Angular';
-  inputText = "";
-  bil1 = 0;
-  bil2 = 0;
+  bil1 = null;
+  bil2 = null;
   op = "";
   res = 0;
+
+  hasOp = false;
   
   constructor(private router : Router) {}
   
   result(){
-    this.bil1 = parseInt(this.inputText[0]);
-    this.op = this.inputText[2];
-    this.bil2 = parseInt(this.inputText[4]);
-
     if(this.op == "+")
     {
       this.res = this.bil1+this.bil2;
@@ -36,6 +33,38 @@ export class AppComponent  {
     }
 
     this.router.navigate(['/result']);
+  }
+
+  type(par)
+  {
+    if(par == "add")
+    {
+      this.op = "+";
+      this.hasOp = true; 
+    }
+    else if(par == "mul")
+    {
+      this.op = "*";
+      this.hasOp = true;  
+    }
+    else if(par == "sub")
+    {
+      this.op = "-";
+      this.hasOp = true;  
+    }
+    else
+    {
+      if(this.hasOp)
+      {
+        if(this.bil2 == null){this.bil2 = par;}
+        else this.bil2 = this.bil2*10 + par;
+      }
+      else
+      {
+        if(this.bil1 == null){this.bil1 = par;}
+        else this.bil1 = this.bil1*10 + par;
+      }
+    }
   }
 
   getResult()

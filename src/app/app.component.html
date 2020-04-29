@@ -1,4 +1,25 @@
-<hello name="{{ name }}"></hello>
-<p>
-  Start editing to see some magic happen :)
-</p>
+<div>
+  <input [(ngModel)] = "inputText" type = "text">
+</div>
+
+<div>
+  <button (click) = "type(1)">1</button>
+  <button (click) = "type(2)">2</button>
+  <button (click) = "type(3)">3</button>
+  <br>
+  <button (click) = "type(4)">4</button>
+  <button (click) = "type(5)">5</button>
+  <button (click) = "type(6)">6</button>
+  <br>
+  <button (click) = "type(7)">7</button>
+  <button (click) = "type(8)">8</button>
+  <button (click) = "type(9)">9</button>
+  <br>
+  <button (click) = "type(sub)">-</button>
+  <button (click) = "type(add)">+</button>
+  <button (click) = "type(mul)">*</button>
+  <button (click)="result()">=</button>
+  <br>
+</div>
+
+<router-outlet></router-outlet>

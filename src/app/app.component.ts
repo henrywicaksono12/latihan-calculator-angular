@@ -9,66 +9,65 @@ import { Router } from '@angular/router'
 
 export class AppComponent  {
   name = 'Angular';
-  bil1 = null;
-  bil2 = null;
+  bil1 = "";
+  bil2 = "";
   op = "";
   res = 0;
+  a = null;
+  b = null;
 
   hasOp = false;
   
   constructor(private router : Router) {}
   
   result(){
+    
+    this.a = parseInt(this.bil1);
+    this.b = parseInt(this.bil2);
+
     if(this.op == "+")
     {
-      this.res = this.bil1+this.bil2;
+      this.res = this.a+this.b;
     }
     else if(this.op == "-")
     {
-      this.res = this.bil1-this.bil2;
+      this.res = this.a-this.b;
     }
     else if(this.op == "*")
     {
-      this.res = this.bil1*this.bil2;
+      this.res = this.a*this.b;
     }
 
-    this.router.navigate(['/result']);
+    this.router.navigate(['/result', this.res]);
   }
 
   type(par)
   {
-    if(par == "add")
+    if(par == "12")
     {
-      this.op = "+";
+      this.op += "+";
       this.hasOp = true; 
     }
-    else if(par == "mul")
+    else if(par == "13")
     {
-      this.op = "*";
+      this.op += "*";
       this.hasOp = true;  
     }
-    else if(par == "sub")
+    else if(par == "11")
     {
-      this.op = "-";
+      this.op += "-";
       this.hasOp = true;  
     }
     else
     {
       if(this.hasOp)
       {
-        if(this.bil2 == null){this.bil2 = par;}
-        else this.bil2 = this.bil2*10 + par;
+        this.bil2 += par.toString();
       }
       else
       {
-        if(this.bil1 == null){this.bil1 = par;}
-        else this.bil1 = this.bil1*10 + par;
+        this.bil1 += par.toString();
       }
     }
-  }
-
-  getResult()
-  {
-    return this.res;
   }
 }

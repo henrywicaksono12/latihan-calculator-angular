@@ -1,5 +1,5 @@
 <div>
-  <textarea>{{bil1}} {{op}} {{bil2}}</textarea>
+  <textarea readonly>{{bil1}} {{op}} {{bil2}}</textarea>
 </div>
 
 <div>
@@ -15,11 +15,13 @@
   <button (click) = "type(8)">8</button>
   <button (click) = "type(9)">9</button>
   <br>
-  <button (click) = "type(sub)">-</button>
-  <button (click) = "type(add)">+</button>
-  <button (click) = "type(mul)">*</button>
+  <button (click) = "type(11)">-</button>
+  <button (click) = "type(12)">+</button>
+  <button (click) = "type(13)">*</button>
   <button (click)="result()">=</button>
   <br>
 </div>
+
+Hasil = {{res}}
 
 <router-outlet></router-outlet>

@@ -37,7 +37,7 @@ export class AppComponent  {
     {
       this.res = this.a*this.b;
     }
-
+    
     this.router.navigate(['/result', this.res]);
   }
 

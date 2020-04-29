@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -9,12 +8,11 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ResultComponent implements OnInit {
 
-  constructor(private appComponent:AppComponent, private route:ActivatedRoute) { }
+  constructor( private route:ActivatedRoute) { }
 
   res = "";
 
   ngOnInit() {
      this.res = this.route.snapshot.paramMap.get('res');
   }
-
 }

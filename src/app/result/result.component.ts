@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-result',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultComponent implements OnInit {
 
-  constructor() { }
+  res = 0;
+
+  constructor(private appComponent:AppComponent) { }
 
   ngOnInit() {
+    this.res = this.appComponent.getResult();
   }
 
 }
